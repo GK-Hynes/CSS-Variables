@@ -11,19 +11,19 @@ CSS variables can be updated on thr fly with JavaScript.
 CSS variables are declared on an element or root. 
 
 ``` css
-    :root {
-    --base: #ffc600;
-    --spacing: 10px;
-    --blur: 10px;
-    }
+:root {
+--base: #ffc600;
+--spacing: 10px;
+--blur: 10px;
+}
 ```
 
 To use a CSS variable use ```var(--variable-name)```
 
 ``` css
-    img {
-        padding: var(--spacing);
-    }
+img {
+    padding: var(--spacing);
+}
 ```
 
 ```document.querySelector()``` returns a node list, not an array. 
@@ -33,14 +33,14 @@ A node list has far fewer methods. It does, however, have ```forEach()```.
 The spacing and blur variables have suffixes. Use data-attributes to handle this: ```data-sizing="px"```.
 
 ``` javascript
-    const suffix =  this.dataSet.sizing || "";
+const suffix =  this.dataSet.sizing || "";
 ```
 
 ```dataSet``` is an object that will contain all of the data attributes from that specific element. 
 
 Update the variables by selecting the entire document and setting a property of base, spacing, and blur. 
 
-Then update the value in ```handleUpdate()```. 
+Then update the value inside ```handleUpdate()```: 
 
 ``` javascript
 document.documentElement.style.setProperty(`${this.name}`, this.value + suffix);
